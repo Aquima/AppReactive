@@ -2,7 +2,7 @@
 //  AppTests.swift
 //  AppTests
 //
-//  Created by User on 8/6/18.
+//  Created by Raul Quispe on 8/6/18.
 //  Copyright © 2018 QuimaDevelopers. All rights reserved.
 //
 

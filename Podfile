@@ -8,6 +8,8 @@ target 'App' do
   # Pods for App
     pod 'RxSwift',    '~> 4.0'
     pod 'RxCocoa',    '~> 4.0'
+    pod 'RxGesture'
+    pod 'SDWebImage', '~> 4.0'
   target 'AppTests' do
     inherit! :search_paths
     # Pods for testing

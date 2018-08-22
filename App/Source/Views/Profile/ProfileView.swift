@@ -9,7 +9,7 @@
 import UIKit
 
 class ProfileView: UIViewController {
-    var user:User!
+  
     // MARK: - UI LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()

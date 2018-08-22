@@ -18,11 +18,20 @@
 		CE50BE752118FD4900F1FD34 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50BE742118FD4900F1FD34 /* LogInView.swift */; };
 		CE50BE762118FD4900F1FD34 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50BE742118FD4900F1FD34 /* LogInView.swift */; };
 		CE50BE772118FD4900F1FD34 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50BE742118FD4900F1FD34 /* LogInView.swift */; };
+		CE556AB1212E02BB00493A41 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE556AB0212E02BB00493A41 /* Router.swift */; };
+		CE556AB2212E02BB00493A41 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE556AB0212E02BB00493A41 /* Router.swift */; };
+		CE556AB3212E02BB00493A41 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE556AB0212E02BB00493A41 /* Router.swift */; };
+		CE556AB6212E0F1900493A41 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE556AB5212E0F1900493A41 /* SplashView.swift */; };
+		CE556AB7212E0F1900493A41 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE556AB5212E0F1900493A41 /* SplashView.swift */; };
+		CE556AB8212E0F1900493A41 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE556AB5212E0F1900493A41 /* SplashView.swift */; };
 		CE6733672124CB2400D88D8D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6733662124CB2400D88D8D /* User.swift */; };
 		CE6733682124D12F00D88D8D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA31F821224A2100A9BE3C /* ProfileView.swift */; };
 		CE6733692124D13000D88D8D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA31F821224A2100A9BE3C /* ProfileView.swift */; };
 		CE67336A2124D14E00D88D8D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6733662124CB2400D88D8D /* User.swift */; };
 		CE67336B2124D14E00D88D8D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6733662124CB2400D88D8D /* User.swift */; };
+		CE67336D2124F36F00D88D8D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67336C2124F36F00D88D8D /* LogInViewController.swift */; };
+		CE67336E2124F37000D88D8D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67336C2124F36F00D88D8D /* LogInViewController.swift */; };
+		CE67336F2124F37000D88D8D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67336C2124F36F00D88D8D /* LogInViewController.swift */; };
 		CECA31F921224A2100A9BE3C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA31F821224A2100A9BE3C /* ProfileView.swift */; };
 		EA557D52004BB17B34AAF025 /* Pods_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32ED91D95262AECFE3DB9470 /* Pods_AppTests.framework */; };
 		EC17A7A8289F5307463F00D0 /* Pods_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3937164C5437D7C36DC21618 /* Pods_App.framework */; };
@@ -69,7 +78,10 @@
 		CE50BE612118F47B00F1FD34 /* AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUITests.swift; sourceTree = "<group>"; };
 		CE50BE632118F47B00F1FD34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE50BE742118FD4900F1FD34 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		CE556AB0212E02BB00493A41 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		CE556AB5212E0F1900493A41 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		CE6733662124CB2400D88D8D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CE67336C2124F36F00D88D8D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		CECA31F821224A2100A9BE3C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +193,7 @@
 		CE50BE6F2118FCCF00F1FD34 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CE556AAF212B814000493A41 /* Router */,
 				CE50BE702118FCCF00F1FD34 /* Model */,
 				CE50BE712118FCCF00F1FD34 /* Views */,
 				CE50BE722118FCCF00F1FD34 /* ViewsModels */,
@@ -199,6 +212,7 @@
 		CE50BE712118FCCF00F1FD34 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE556AB4212E0ED300493A41 /* Splash */,
 				CECA31F721224A0B00A9BE3C /* Profile */,
 				CE50BE732118FD3D00F1FD34 /* LogIn */,
 			);
@@ -216,8 +230,25 @@
 			isa = PBXGroup;
 			children = (
 				CE50BE742118FD4900F1FD34 /* LogInView.swift */,
+				CE67336C2124F36F00D88D8D /* LogInViewController.swift */,
 			);
 			path = LogIn;
+			sourceTree = "<group>";
+		};
+		CE556AAF212B814000493A41 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				CE556AB0212E02BB00493A41 /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		CE556AB4212E0ED300493A41 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				CE556AB5212E0F1900493A41 /* SplashView.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		CECA31F721224A0B00A9BE3C /* Profile */ = {
@@ -468,7 +499,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CECA31F921224A2100A9BE3C /* ProfileView.swift in Sources */,
+				CE556AB6212E0F1900493A41 /* SplashView.swift in Sources */,
 				CE50BE752118FD4900F1FD34 /* LogInView.swift in Sources */,
+				CE67336D2124F36F00D88D8D /* LogInViewController.swift in Sources */,
+				CE556AB1212E02BB00493A41 /* Router.swift in Sources */,
 				CE50BE442118F47200F1FD34 /* ViewController.swift in Sources */,
 				CE6733672124CB2400D88D8D /* User.swift in Sources */,
 				CE50BE422118F47200F1FD34 /* AppDelegate.swift in Sources */,
@@ -482,7 +516,10 @@
 				CE67336A2124D14E00D88D8D /* User.swift in Sources */,
 				CE50BE762118FD4900F1FD34 /* LogInView.swift in Sources */,
 				CE6733692124D13000D88D8D /* ProfileView.swift in Sources */,
+				CE67336E2124F37000D88D8D /* LogInViewController.swift in Sources */,
+				CE556AB2212E02BB00493A41 /* Router.swift in Sources */,
 				CE50BE572118F47B00F1FD34 /* AppTests.swift in Sources */,
+				CE556AB7212E0F1900493A41 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,7 +530,10 @@
 				CE67336B2124D14E00D88D8D /* User.swift in Sources */,
 				CE50BE772118FD4900F1FD34 /* LogInView.swift in Sources */,
 				CE6733682124D12F00D88D8D /* ProfileView.swift in Sources */,
+				CE67336F2124F37000D88D8D /* LogInViewController.swift in Sources */,
+				CE556AB3212E02BB00493A41 /* Router.swift in Sources */,
 				CE50BE622118F47B00F1FD34 /* AppUITests.swift in Sources */,
+				CE556AB8212E0F1900493A41 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

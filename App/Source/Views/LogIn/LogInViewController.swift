@@ -1,4 +1,12 @@
 //
+//  LogInViewController.swift
+//  App
+//
+//  Created by User on 8/15/18.
+//  Copyright © 2018 QuimaDevelopers. All rights reserved.
+//
+
+//
 //  LogInView.swift
 //  App
 //
@@ -7,83 +15,69 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
-import RxGesture
-/*
- PDT: Raul Quispe
- Contactenme para cualquier duda o crear un canal de comunicacion
- para aprender mas acerca de RxSwift y Programacion Reactiva.
- email: raul.quispe@live.com
- */
-class LogInView: UIViewController {
+
+class LogInViewController: UIViewController {
     private var user:User!
     // MARK: - UI Elements
     @IBOutlet weak var txtfUsername: UITextField!
     @IBOutlet weak var txtfPassword: UITextField!
     @IBOutlet weak var btnEnter: UIButton!
-
+    
     let requiredLength = 5
+    
+    var isUsernameValid:Bool = false
+    var isPasswordValid:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         self.addValues()
         self.user = User()
-        
-        self.view.rx
-            .tapGesture()
-            .when(.recognized)
-            .subscribe(onNext: { _ in
-                //react to taps
-                self.txtfPassword.resignFirstResponder()
-                self.txtfUsername.resignFirstResponder()
-            })
-            .disposed(by: disposeBag)
-        let userNameValid: Observable<Bool> = self.txtfUsername.rx.text
-            .map{ text -> Bool in
-              
-                text!.count >= self.requiredLength
-            }
-            .share(replay: 1)
-        let passwordValid: Observable<Bool> = self.txtfPassword.rx.text
-            .map{ text -> Bool in
-               
-                text!.count >= self.requiredLength
-            }
-            .share(replay:1)
-        
-        let everythingValid: Observable<Bool>
-            = Observable.combineLatest(userNameValid, passwordValid) {
-                $0 && $1
-                
-        }
 
-        everythingValid
-            .bind(to: self.btnEnter.rx.isEnabled)
-            .disposed(by: disposeBag)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    // MARK: - UITextFieldDelegate
+    @objc func textFieldDidChange(textField: UITextField){
+   
+        if textField.tag == 0 {
+            if textField.text!.count >= self.requiredLength {
+                self.isUsernameValid = true
+            }else{
+                self.isUsernameValid = false
+            }
+            
+        } else if textField.tag == 1 {
+            if textField.text!.count >= self.requiredLength {
+                self.isPasswordValid = true
+            }else{
+                self.isPasswordValid = false
+            }
+        }
+        
+        if self.isUsernameValid && self.isPasswordValid {
+            self.btnEnter.isEnabled = true
+        }else{
+            self.btnEnter.isEnabled = false
+        }
+    }
     func addValues() {
         
+        self.btnEnter.isEnabled = false
         self.btnEnter.setTitle("", for: .disabled)
         self.btnEnter.setTitle("Ingresar", for: .normal)
         self.txtfPassword.font = UIFont(name: "Helvetica", size: 15)
         self.txtfPassword.textColor = UIColor.purple
         
-    }
-    
-    let disposeBag = DisposeBag()
+        self.txtfUsername.tag = 0
+        self.txtfPassword.tag = 1
 
-    func binding() {
-//        txtfUsername.rx.text.asDriver().drive(self.txtfPassword.rx.text)
-//            .disposed(by: disposeBag)
+        self.txtfUsername.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+        self.txtfPassword.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+ 
     }
 
     @IBAction func getProfile(_ sender: Any) {
@@ -92,9 +86,10 @@ class LogInView: UIViewController {
         
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //        let view:ProfileView = storyboard.instantiateViewController(withIdentifier: "ProfileView") as! ProfileView
-//
+        
+        
 //        self.present(view, animated: true, completion: nil)
-    
+        
         let loginString = String(format: "%@:%@", user.name, user.password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
@@ -104,7 +99,7 @@ class LogInView: UIViewController {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
-
+        
         let session: URLSession
         session = URLSession(configuration: URLSessionConfiguration.default)
         let task = session.dataTask(with: request, completionHandler: { data, response, error in
@@ -113,13 +108,13 @@ class LogInView: UIViewController {
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options:
                     JSONSerialization.ReadingOptions.mutableContainers)
                 print(jsonResult)
-
+                
             } catch let err {
-               print(err.localizedDescription)
+                print(err.localizedDescription)
             }
             
         })
         task.resume()
     }
-  
+    
 }
